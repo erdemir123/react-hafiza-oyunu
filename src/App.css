@@ -27,4 +27,8 @@ button:hover {
   grid-template-columns:1fr 1fr 1fr 1fr;
   grid-gap:5px;
 }
+.start{
+  background: #ff7b00;
+  color: #fff;
+}
 

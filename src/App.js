@@ -25,21 +25,17 @@ function App() {
   const kartSeç = (kart) => {
     ilk ? setiki(kart) : setilk(kart);
   };
-  const yeniOyun=()=>{
-    setOyunbitti(!oyunbitti)
-  }
-
   useEffect(() => {
     if (ilk && iki) {
       if (ilk.src === iki.src) {
         setiki();
         setilk();
+        
         setsayı((öncekisayı) => öncekisayı + 1);
         setKartlar((öncekiKart) => {
           return öncekiKart.map((kart) => {
             if (kart.src === ilk.src) {
               return { ...kart, eşleşme: true };
-
             } else {
               return kart;
             }
@@ -51,33 +47,25 @@ function App() {
         setsayı((öncekisayı) => öncekisayı + 1);
       }
     }
-   setOyunbitti(kartlar.every((kart)=>kart.eşleşme==true))
+    setOyunbitti(kartlar.every((kart)=>kart.eşleşme==true))
    console.log(oyunbitti)
   }, [ilk, iki]);
-  if(oyunbitti){
-    return (
-      <div>
-      <div>tebrikler GÖKÇEMMMM</div>
-      <button onClick={yeniOyun}>Yeni Oyun</button>
-      </div>
-      
-    )
-  }else{
+  useEffect(()=>{
+    setOyunbitti(false)
+  },[])
+  
     return (
       <div className="App">
-        <h1>GÖKÇEMMMM Hafıza Oyunu</h1>
-        <button onClick={karıştır}>Start</button>
+        <h1> Hafıza Oyunu</h1>
+        <button onClick={karıştır} className={oyunbitti ? "start" :""}>{oyunbitti ? "yeni oyun" :"Start"}</button>
         <div className="card-grid">
           {kartlar.map((kart) => (
             <Card kart={kart} kartSeç={kartSeç} dönüş={kart === ilk || kart === iki || kart.eşleşme} />
           ))}
         </div>
-        <div>
-          <p>{sayı}</p>
-        </div>
+          {oyunbitti ? <h1>tebrikler skorunuz:{sayı}</h1> : ""}
       </div>
     );
-  }
   
 }
 
