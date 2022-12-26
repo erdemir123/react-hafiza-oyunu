@@ -1,12 +1,12 @@
 import "./Card.css"
 import React from 'react'
 
-const Card = ({kart}) => {
+const Card = ({kart,kartSeç}) => {
   return (
     <div className="card" key={kart.id}>
-            <div>
+            <div >
               <img src={kart.src} alt="" className="front" />
-              <img src="/img/kapak.png" alt="" className="back" />
+              <img src="/img/kapak.png" alt="" className="back" onClick={()=>kartSeç(kart)}/>
             </div>
           </div>
   )
