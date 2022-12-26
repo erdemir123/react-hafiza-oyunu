@@ -1,18 +1,34 @@
-.front {
-  width: 100px;
-  height: 100px;
-}
-.back {
-  width: 100px;
-  height: 100px;
-}
 
 .card {
-  position: relative;
+    position: relative;
+  }
+  .card img {
+    width: 100%;
+    display: block;
+    border: 2px solid gray;
+    border-radius: 6px;
+  }.card .front {
+  width: 100px;
+  height: 100px;
+  transform: rotateY(90deg);
+  transition:all ease 0.3s;
+  position: absolute;
+  
 }
-.card img {
-  width: 100%;
-  display: block;
-  border: 2px solid gray;
-  border-radius: 6px;
+.card .back {
+  width: 100px;
+  height: 100px;
+  transition-delay:0.2s;
+  transform: rotate(0deg);
+  transition:all ease 0.3s;
+}
+
+
+.flipped .front {
+  transform: rotateY(0deg);
+  transition-delay:0.3s;
+}
+.flipped .back {
+  transform: rotateY(90deg);
+  transition-delay:0.3s;
 }
