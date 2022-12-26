@@ -24,7 +24,6 @@ function App() {
   };
   const kartSeç = (kart) => {
     ilk ? setiki(kart) : setilk(kart);
-    console.log(ilk,iki);
   };
   const yeniOyun=()=>{
     setOyunbitti(!oyunbitti)
@@ -52,8 +51,8 @@ function App() {
         setsayı((öncekisayı) => öncekisayı + 1);
       }
     }
-   setOyunbitti(kartlar.every((kart)=>(kart.eşleşme)))
-   
+   setOyunbitti(kartlar.every((kart)=>kart.eşleşme==true))
+   console.log(oyunbitti)
   }, [ilk, iki]);
   if(oyunbitti){
     return (
@@ -67,7 +66,7 @@ function App() {
     return (
       <div className="App">
         <h1>GÖKÇEMMMM Hafıza Oyunu</h1>
-        <button onClick={karıştır}>Yeni Oyun</button>
+        <button onClick={karıştır}>Start</button>
         <div className="card-grid">
           {kartlar.map((kart) => (
             <Card kart={kart} kartSeç={kartSeç} dönüş={kart === ilk || kart === iki || kart.eşleşme} />
