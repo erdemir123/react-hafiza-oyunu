@@ -58,7 +58,7 @@ function App() {
   if(oyunbitti){
     return (
       <div>
-      <div>tebrikler</div>
+      <div>tebrikler GÖKÇEMMMM</div>
       <button onClick={yeniOyun}>Yeni Oyun</button>
       </div>
       
@@ -66,7 +66,7 @@ function App() {
   }else{
     return (
       <div className="App">
-        <h1>React Hafıza Oyunu</h1>
+        <h1>GÖKÇEMMMM Hafıza Oyunu</h1>
         <button onClick={karıştır}>Yeni Oyun</button>
         <div className="card-grid">
           {kartlar.map((kart) => (
